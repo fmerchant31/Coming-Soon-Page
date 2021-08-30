@@ -19,8 +19,7 @@ html,body{
     color: #fff;
 }
 .log{
-    margin-top: 50px;
-    margin-right: 1050px;
+    margin-right: 650px;
     font-family: 'Sarabun', sans-serif;
     font-weight: 1000;
     display: flex;
@@ -105,5 +104,15 @@ input{
     height: 50px;
     background: transparent;
     border: 1px solid #fff;
+  }
+  @media screen and (max-width: 560px){
+      .log{
+          margin-left: 50px;
+          margin-top: 50px;
+      }
+      .wrapper .count-down .timer{
+          display: flex;
+          flex-direction: column;
+      }
   }
     
