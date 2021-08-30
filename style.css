@@ -114,5 +114,8 @@ input{
           display: flex;
           flex-direction: column;
       }
+      .wrapper{
+          margin-top: 70px;
+      }
   }
     
