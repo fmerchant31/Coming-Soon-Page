@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   
+</head>
+<body>
+    <div class="log">
+        <h1>NEXT</h1>
+        <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+    </div>
+    <div class="wrapper">
+        
+        <p class="title">We are coming soon!!!</p>
+        <p class="sub-title">Stay tuned for something amazing.</p>
+        <div class="count-down">
+            <div class="timer day">
+                <div class="count">
+                    <p class="numb" id="days">00</p>
+                    <p class="text">days</p>
+                </div>
+            </div>
+            <div class="timer hour">
+                <div class="count">
+                    <p class="numb" id="hours">00</p>
+                    <p class="text">hrs</p>
+                </div>
+            </div>
+            <div class="timer min">
+                <div class="count">
+                    <p class="numb" id="minutes">00</p>
+                    <p class="text">min</p>
+                </div>
+            </div>
+            <div class="timer sec">
+                <div class="count">
+                    <p class="numb" id="seconds">00</p>
+                    <p class="text">sec</p>
+                 </div>
+            </div>
+        </div>
+        <div class="email-content">
+            <p class="text">Get subscribe to your mailing list for latest updates...keep rocking!!</p>
+        </div>
+        <div class="email-field">
+            <form class="subcriber">
+                <input type="email" placeholder="Email ID">
+                <button><i class="fa fa-envelope-o fa-2x" aria-hidden="true"></i></button>
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+    const day = document.querySelector(".day .numb");
+    const hour = document.querySelector(".hour .numb");
+    const min = document.querySelector(".min .numb");
+    const sec = document.querySelector(".sec .numb");
+
+    var timer = setInterval(()=>{
+        var currentDate = new Date().getTime();
+        var launchDate = new Date('Sep 27, 2021 13:00:00').getTime();
+        var duration = launchDate - currentDate;
+        var days = Math.floor(duration / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((duration % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((duration % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((duration % (1000 * 60)) / 1000);
+        day.innerHTML = days;
+        hour.innerHTML = hours;
+        min.innerHTML = minutes;
+        sec.innerHTML = seconds;
+
+        if(days < 10){
+            day.innerHTML = '0' + days;
+        }
+
+        if(hours < 10){
+            hour.innerHTML = '0' + hours;
+        }
+
+        if(minutes < 10){
+            min.innerHTML = '0' + minutes;
+        }
+
+        if(seconds < 10){
+            sec.innerHTML = '0' + seconds;
+        }
+        if(duration < 0){
+            clearInterval(timer);
+        }
+    }, 1000);
+        
+</script>
+</html>
